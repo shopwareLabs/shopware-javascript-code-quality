@@ -5,7 +5,7 @@ This package provides custom ESLint rules for Shopware Storefront projects. Thes
 ## Installation
 
 ```
-npm install @shopwarelabs/storefront-eslint-rules --save-dev
+npm install @shopware-ag/storefront-eslint-rules --save-dev
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ npm install @shopwarelabs/storefront-eslint-rules --save-dev
 Add the following to your ESLint configuration file (e.g., .eslintrc.js):
 
 ```diff
-+import storefrontRules from '@shopwarelabs/storefront-eslint-rules';
++import storefrontRules from '@shopware-ag/storefront-eslint-rules';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [

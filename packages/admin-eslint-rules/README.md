@@ -7,7 +7,7 @@ This package provides ESLint rules for the Shopware Administration.
 You can install this package using npm:
 
 ```bash
-npm install @shopwarelabs/admin-eslint-rules --save-dev
+npm install @shopware-ag/admin-eslint-rules --save-dev
 ```
 
 ## Usage
@@ -17,14 +17,14 @@ Add the following to your `.eslintrc.js` file:
 ```javascript
 module.exports = {
     "plugins": [
-        "@shopwarelabs/admin-eslint-rules"
+        "@shopware-ag/admin-eslint-rules"
     ],
     "rules": {
-        "@shopwarelabs/admin-eslint-rules/no-snippet-import": "error",
-        "@shopwarelabs/admin-eslint-rules/no-src-import": "error",
-        "@shopwarelabs/admin-eslint-rules/no-sw-extension-override": "error",
-        "@shopwarelabs/admin-eslint-rules/require-explict-emits": "error",
-        "@shopwarelabs/admin-eslint-rules/state-import": "error"
+        "@shopware-ag/admin-eslint-rules/no-snippet-import": "error",
+        "@shopware-ag/admin-eslint-rules/no-src-import": "error",
+        "@shopware-ag/admin-eslint-rules/no-sw-extension-override": "error",
+        "@shopware-ag/admin-eslint-rules/require-explict-emits": "error",
+        "@shopware-ag/admin-eslint-rules/state-import": "error"
     }
 };
 ```

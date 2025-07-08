@@ -1,5 +1,5 @@
 {
-	"name": "@shopwarelabs/admin-eslint-rules",
+	"name": "@shopware-ag/admin-eslint-rules",
 	"type": "module",
 	"description": "Shopware Administration ESLint rules",
 	"version": "1.0.1",

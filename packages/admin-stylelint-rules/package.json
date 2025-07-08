@@ -1,5 +1,5 @@
 {
-	"name": "@shopwarelabs/admin-stylelint-rules",
+	"name": "@shopware-ag/admin-stylelint-rules",
 	"version": "1.0.1",
 	"main": "index.js",
 	"type": "module",
