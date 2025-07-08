@@ -19,8 +19,18 @@ jobs:
         with:
           node-version: "24"
           registry-url: "https://npm.pkg.github.com"
+          cache: 'pnpm'
 
-      - name: Publish package
-        run: npm publish
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Set version of all packages
+        run: pnpm -r exec -- pnpm version ${GITHUB_REF_NAME#v} --no-git-tag-version --allow-same-version
+
+      - name: Publish packages
+        run: pnpm -r publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
