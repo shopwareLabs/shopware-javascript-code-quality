@@ -1,4 +1,4 @@
-# Shopware Administration ESLint Rules
+# ESLint Rules for Shopware Administration
 
 This package provides ESLint rules for the Shopware Administration.
 

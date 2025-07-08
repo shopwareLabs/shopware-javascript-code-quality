@@ -1,4 +1,4 @@
-# @shopwarelabs/admin-stylelint-rules
+# Stylelint Rules for Shopware Administration
 
 This package provides custom stylelint rules for Shopware Administration development.
 
@@ -20,14 +20,14 @@ Add the plugin to your stylelint configuration file (e.g., `.stylelintrc.json`) 
     "@shopwarelabs/admin-stylelint-rules"
   ],
   "rules": {
-    "shopware-administration/no-scss-extension-import": true
+    "@shopwarelabs/admin-stylelint-rules/wrong-scss-import": true
   }
 }
 ```
 
 ## Rules
 
-### `shopware-administration/no-scss-extension-import`
+### `@shopwarelabs/admin-stylelint-rules/wrong-scss-import`
 
 This rule prevents the use of the `.scss` file extension in `@import` statements that start with `~scss`. It encourages a consistent import style for shared SCSS resources.
 
@@ -46,7 +46,3 @@ This rule can automatically fix violations.
 @import "~scss/variables";
 @import '~scss/mixins';
 ```
-
-## License
-
-[MIT](./LICENSE)
