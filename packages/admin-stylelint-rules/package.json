@@ -1,0 +1,21 @@
+{
+	"name": "@shopwarelabs/admin-stylelint-rules",
+	"version": "1.0.1",
+	"main": "index.js",
+	"type": "module",
+	"peerDependencies": {
+		"stylelint": "^16.0.0"
+	},
+	"devDependencies": {
+		"vitest": "catalog:"
+	},
+	"exports": {
+		".": {
+			"import": "./index.js",
+			"require": "./index.js"
+		}
+	},
+	"scripts": {
+		"test": "vitest run"
+	}
+}
