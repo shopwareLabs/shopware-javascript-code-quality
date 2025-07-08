@@ -5,7 +5,7 @@
 	},
 	"scripts": {
 		"biome": "biome",
-		"biome:fix": "biome format --write . && biome lint --fix --unsafe .",
+		"biome:fix": "biome format --write . && biome lint --fix --unsafe . && biome check --fix --unsafe .",
 		"biome:check": "biome ci ."
 	}
 }

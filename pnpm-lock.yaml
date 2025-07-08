@@ -4,6 +4,15 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    eslint:
+      specifier: ^9.0.0
+      version: 9.30.1
+    vitest:
+      specifier: ^3.2.0
+      version: 3.2.4
+
 importers:
 
   .:
@@ -23,6 +32,15 @@ importers:
         version: 9.30.1
       vitest:
         specifier: ^3.2.0
+        version: 3.2.4
+
+  packages/storefront-eslint-rules:
+    devDependencies:
+      eslint:
+        specifier: 'catalog:'
+        version: 9.30.1
+      vitest:
+        specifier: 'catalog:'
         version: 3.2.4
 
 packages:
