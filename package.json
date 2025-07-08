@@ -2,7 +2,7 @@
 	"name": "@shopwarelabs/admin-eslint-rules",
 	"type": "module",
 	"description": "Shopware Administration ESLint rules",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"main": "index.js",
 	"license": "MIT",
 	"author": "Shopware AG",
