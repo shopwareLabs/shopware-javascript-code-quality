@@ -43,20 +43,16 @@ export default {
 					const method = node.callee.property.name;
 					const args = node.arguments;
 
-					const dataSetKey = ucfirst(
+					const dataSetKey = toCamelCase(
 						context
 							.getSourceCode()
 							.getText(args[1])
-							.replace(/^data(|-)/, "")
-							.split("-")
-							.map(lowercase)
-							.map(ucfirst)
-							.join(""),
+							.replace(/^data-/, ""),
 					);
 
 					const fixes = {
 						getDataAttribute: () =>
-							`${context.getSourceCode().getText(args[0])}.dataset[${dataSetKey}]`,
+							`${context.getSourceCode().getText(args[0])}.dataset['${dataSetKey}']`,
 						hasAttribute: () =>
 							`${context.getSourceCode().getText(args[0])}.hasAttribute(${context.getSourceCode().getText(args[1])})`,
 						getAttribute: () =>
@@ -82,10 +78,9 @@ export default {
 	},
 };
 
-function ucfirst(string) {
-	return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-function lowercase(string) {
-	return string.toLowerCase();
+function toCamelCase(str) {
+	return str
+		.replace(/['"]/g, "")
+		.replace(/^data-/, "")
+		.replace(/-(\w)/g, (_, c) => c.toUpperCase());
 }

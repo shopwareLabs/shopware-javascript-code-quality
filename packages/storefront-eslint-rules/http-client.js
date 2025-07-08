@@ -34,14 +34,6 @@ export default {
 					node.init.callee.name === "HttpClient"
 				) {
 					httpClientVariableName = node.id.name;
-					context.report({
-						node: node.parent,
-						message: `Remove HttpClient assignment for '${httpClientVariableName}' as fetch will be used instead.`,
-						fix(fixer) {
-							// Remove the entire variable declaration
-							return fixer.remove(node.parent);
-						},
-					});
 				}
 			},
 
@@ -53,15 +45,6 @@ export default {
 					node.right.callee.name === "HttpClient"
 				) {
 					httpClientPropertyName = node.left.property.name;
-					context.report({
-						node,
-						message: `Remove HttpClient assignment for '${httpClientPropertyName}' as fetch will be used instead.`,
-						fix(fixer) {
-							// node.parent should be the ExpressionStatement if the assignment is a standalone statement.
-							// This is usually correct for removing the whole line.
-							return fixer.remove(node.parent);
-						},
-					});
 				}
 			},
 			CallExpression(node) {
@@ -152,12 +135,7 @@ export default {
 							let callbackBodyText = sourceCode.getText(callbackFnArg.body);
 
 							if (callbackFnArg.body.type === "BlockStatement") {
-								callbackBodyText = callbackBodyText
-									.replace(/^\\{|\\}$/g, "")
-									.trim();
-							} else {
-								// If not a block statement, it's an expression, so ensure it's returned in the new block
-								callbackBodyText = `return ${callbackBodyText};`;
+								callbackBodyText = callbackBodyText.slice(1, -1).trim();
 							}
 
 							const thenClause = `.then((${callbackParamName}) => {
@@ -169,7 +147,7 @@ export default {
 							} else {
 								// post
 								const dataText = sourceCode.getText(dataArg);
-								fetchCode = `fetch(${urlText}, {\n    method: 'POST',\n    headers: {\n        'Content-Type': ${contentTypeArgText}\n    },\n    body: ${dataText}\n})\n    .then(response => response.text())\n    ${thenClause}`;
+								fetchCode = `fetch(${urlText}, {\n    method: 'POST',\n    headers: {\n        'Content-Type': ${contentTypeArgText}\n    },\n    body: JSON.stringify(${dataText})\n})\n    .then(response => response.text())\n    ${thenClause}`;
 							}
 						} else {
 							// For FunctionExpression, .bind() calls, or complex ArrowFunctions
@@ -179,7 +157,7 @@ export default {
 							} else {
 								// post
 								const dataText = sourceCode.getText(dataArg);
-								fetchCode = `fetch(${urlText}, {\n    method: 'POST',\n    headers: {\n        'Content-Type': ${contentTypeArgText}\n    },\n    body: ${dataText}\n})\n    .then(response => response.text())\n    ${thenClause}`;
+								fetchCode = `fetch(${urlText}, {\n    method: 'POST',\n    headers: {\n        'Content-Type': ${contentTypeArgText}\n    },\n    body: JSON.stringify(${dataText})\n})\n    .then(response => response.text())\n    ${thenClause}`;
 							}
 						}
 
