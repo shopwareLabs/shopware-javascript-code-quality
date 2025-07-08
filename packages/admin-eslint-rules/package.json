@@ -20,7 +20,8 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/shopwarelabs/admin-eslint-rules.git"
+		"url": "https://github.com/shopwareLabs/shopware-javascript-code-quality.git",
+		"directory": "packages/admin-eslint-rules"
 	},
 	"keywords": [
 		"shopware",
@@ -28,9 +29,9 @@
 		"eslint-plugin",
 		"eslint-rules"
 	],
-	"homepage": "https://github.com/shopwarelabs/admin-eslint-rules#readme",
+	"homepage": "https://github.com/shopwareLabs/shopware-javascript-code-quality/tree/main/packages/admin-eslint-rules#readme",
 	"bugs": {
-		"url": "https://github.com/shopwarelabs/admin-eslint-rules/issues"
+		"url": "https://github.com/shopwareLabs/shopware-javascript-code-quality/issues"
 	},
 	"scripts": {
 		"test": "vitest run"
