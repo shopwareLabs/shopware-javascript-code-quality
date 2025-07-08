@@ -30,6 +30,6 @@ jobs:
         run: pnpm -r exec -- pnpm version ${GITHUB_REF_NAME#v} --no-git-tag-version --allow-same-version
 
       - name: Publish packages
-        run: pnpm -r publish --no-git-checks
+        run: pnpm -r publish --no-git-checks --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
