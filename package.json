@@ -4,7 +4,7 @@
 		"@biomejs/biome": "~2.1.0"
 	},
 	"scripts": {
-        "biome": "biome",
+		"biome": "biome",
 		"biome:fix": "biome format --write . && biome lint --fix --unsafe .",
 		"biome:check": "biome ci ."
 	}

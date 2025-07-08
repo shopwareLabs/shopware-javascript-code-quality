@@ -23,6 +23,7 @@ jobs:
           run: biome ci .
 
   test:
+    name: Vitest
     runs-on: ubuntu-latest
 
     steps:
@@ -38,7 +39,7 @@ jobs:
         uses: pnpm/action-setup@v4
 
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
 
       - name: Run tests
         run: pnpm run -r test
