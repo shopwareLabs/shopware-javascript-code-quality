@@ -1,45 +1,45 @@
 {
-  "name": "@shopwarelabs/admin-eslint-rules",
-  "type": "module",
-  "description": "Shopware Administration ESLint rules",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "author": "Shopware AG",
-  "dependencies": {
-    "compare-versions": "^6.1.1"
-  },
-  "peerDependencies": {
-    "eslint": "^9.0.0"
-  },
-  "exports": {
-    ".": {
-      "import": "./index.js",
-      "require": "./index.js"
-    }
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/shopwarelabs/admin-eslint-rules.git"
-  },
-  "keywords": [
-    "shopware",
-    "eslint",
-    "eslint-plugin",
-    "eslint-rules"
-  ],
-  "homepage": "https://github.com/shopwarelabs/admin-eslint-rules#readme",
-  "bugs": {
-    "url": "https://github.com/shopwarelabs/admin-eslint-rules/issues"
-  },
-  "scripts": {
-    "test": "vitest"
-  },
-  "devDependencies": {
-    "eslint": "^9.0.0",
-    "vitest": "^3.2.0"
-  }
+	"name": "@shopwarelabs/admin-eslint-rules",
+	"type": "module",
+	"description": "Shopware Administration ESLint rules",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"author": "Shopware AG",
+	"dependencies": {
+		"compare-versions": "^6.1.1"
+	},
+	"peerDependencies": {
+		"eslint": "^9.0.0"
+	},
+	"exports": {
+		".": {
+			"import": "./index.js",
+			"require": "./index.js"
+		}
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/shopwarelabs/admin-eslint-rules.git"
+	},
+	"keywords": [
+		"shopware",
+		"eslint",
+		"eslint-plugin",
+		"eslint-rules"
+	],
+	"homepage": "https://github.com/shopwarelabs/admin-eslint-rules#readme",
+	"bugs": {
+		"url": "https://github.com/shopwarelabs/admin-eslint-rules/issues"
+	},
+	"scripts": {
+		"test": "vitest"
+	},
+	"devDependencies": {
+		"eslint": "^9.0.0",
+		"vitest": "^3.2.0"
+	}
 }

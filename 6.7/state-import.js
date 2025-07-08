@@ -22,7 +22,7 @@ export default {
 			return match ? match[0] : "";
 		}
 
-		function isShopwareState(node) {
+		function _isShopwareState(node) {
 			return (
 				node &&
 				node.type === "MemberExpression" &&
@@ -199,7 +199,7 @@ export default {
 									if (!returnedExpr) return "";
 									const returnedText = sourceCode.getText(returnedExpr);
 									// Ensure returned text starts with the parameter.
-									const regex = new RegExp("^" + paramName + "\\b");
+									const regex = new RegExp(`^${paramName}\\b`);
 									if (!regex.test(returnedText)) return "";
 									const newReturnedText = returnedText.replace(
 										regex,

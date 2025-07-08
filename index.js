@@ -1,10 +1,9 @@
 import { compareVersions } from "compare-versions";
-
+import requireExplicitEmits from "./6.7/require-explict-emits.js";
+import noVuex from "./6.7/state-import.js";
 import noSnippetImport from "./no-snippet-import.js";
 import noSrcImport from "./no-src-import.js";
 import noSwExtensionOverride from "./no-sw-extension-override.js";
-import noVuex from "./6.7/state-import.js";
-import requireExplicitEmits from "./6.7/require-explict-emits.js";
 
 let rules = {
 	"no-src-import": noSrcImport,

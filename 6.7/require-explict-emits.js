@@ -40,7 +40,7 @@ export default {
 		schema: [], // No options needed
 		minShopwareVersion: "6.7.0.0",
 	},
-	create: function (context) {
+	create: (context) => {
 		let componentNode;
 		let emitsNode;
 		const emittedEvents = new Set();
