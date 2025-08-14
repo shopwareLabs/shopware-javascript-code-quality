@@ -44,8 +44,7 @@ jobs:
       - name: Update biome.json schema
         run: |
           BIOME_VERSION="${{ steps.biome-version.outputs.version }}"
-          MAJOR_MINOR=$(echo $BIOME_VERSION | cut -d. -f1,2)
-          jq --arg schema "https://biomejs.dev/schemas/${MAJOR_MINOR}/schema.json" '."$schema" = $schema' biome.json > biome.json.tmp
+          jq --arg schema "https://biomejs.dev/schemas/${BIOME_VERSION}/schema.json" '."$schema" = $schema' biome.json > biome.json.tmp
           mv biome.json.tmp biome.json
 
       - name: Check for changes
