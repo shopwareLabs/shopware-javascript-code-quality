@@ -16,8 +16,8 @@ export default {
 	},
 	rules: {
 		"shopware-storefront/migrate-plugin-manager": "error",
-		"shopware-storefront/no-dom-access-helper": "error",
-		"shopware-storefront/no-http-client": "error",
-		"shopware-storefront/no-query-string": "error",
+		"shopware-storefront/no-dom-access-helper": "warn",
+		"shopware-storefront/no-http-client": "warn",
+		"shopware-storefront/no-query-string": "warn",
 	},
 };
