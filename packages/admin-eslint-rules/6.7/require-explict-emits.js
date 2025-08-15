@@ -82,9 +82,9 @@ export default {
 					.map(([, capturedGroup]) => capturedGroup)
 					.filter(Boolean);
 
-				templateEventsNames.forEach((eventName) =>
-					emittedEvents.add(eventName),
-				);
+				templateEventsNames.forEach((eventName) => {
+					emittedEvents.add(eventName);
+				});
 			}
 		}
 
