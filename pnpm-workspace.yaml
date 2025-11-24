@@ -5,5 +5,5 @@ onlyBuiltDependencies:
   - esbuild
 
 catalog:
-  eslint: ^9.38.0
-  vitest: ^4.0.1
+  eslint: ^9.39.1
+  vitest: ^4.0.13
