@@ -4,7 +4,7 @@
 	"main": "index.js",
 	"type": "module",
 	"peerDependencies": {
-		"stylelint": "^16.0.0"
+		"stylelint": "^16.0.0 || ^17.0.0"
 	},
 	"devDependencies": {
 		"vitest": "catalog:"
