@@ -1,25 +1,21 @@
 {
-	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": ["config:base"],
-	"packageRules": [
-		{
-			"matchManagers": ["npm", "pnpm"],
-			"groupName": "all dependencies",
-			"groupSlug": "all-deps"
-		},
-		{
-			"matchManagers": ["github-actions"],
-			"groupName": "github actions",
-			"groupSlug": "github-actions"
-		}
-	],
-	"schedule": ["every weekday"],
-	"timezone": "UTC",
-	"prConcurrentLimit": 3,
-	"prHourlyLimit": 2,
-	"rebaseWhen": "conflicted",
-	"labels": ["dependencies"],
-	"pnpm": {
-		"enabled": true
-	}
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "schedule": [
+    "before 9am on monday"
+  ],
+  "commitMessagePrefix": "fix(deps): ",
+  "packageRules": [
+    {
+      "groupName": "all",
+      "matchPackageNames": [
+        "*"
+      ]
+    }
+  ],
+  "github-actions": {
+    "enabled": true
+  }
 }
