@@ -7,6 +7,7 @@ export default {
 			recommended: false,
 		},
 		fixable: "code",
+		schema: [],
 	},
 	create(context) {
 		let httpClientPropertyName = null;
@@ -62,7 +63,7 @@ export default {
 					node.callee.object.name === httpClientVariableName;
 
 				if (isClassPropertyCall || isLocalVariableCall) {
-					const sourceCode = context.getSourceCode();
+					const sourceCode = context.sourceCode;
 					const method = node.callee.property.name;
 
 					let urlArg;

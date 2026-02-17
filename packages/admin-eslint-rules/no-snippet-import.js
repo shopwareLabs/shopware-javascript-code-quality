@@ -7,6 +7,7 @@ export default {
 			category: "Best Practices",
 			recommended: true,
 		},
+		schema: [],
 	},
 	create(context) {
 		return {

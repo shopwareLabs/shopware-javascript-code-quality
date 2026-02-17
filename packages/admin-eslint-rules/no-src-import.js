@@ -1,4 +1,13 @@
 export default {
+	meta: {
+		type: "problem",
+		docs: {
+			description: "Forbid imports directly from the Shopware Core via @administration/",
+			category: "Best Practices",
+			recommended: true,
+		},
+		schema: [],
+	},
 	create(context) {
 		return {
 			ImportDeclaration(node) {

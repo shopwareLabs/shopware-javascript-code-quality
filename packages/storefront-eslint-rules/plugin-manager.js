@@ -8,6 +8,7 @@ export default {
 			recommended: false,
 		},
 		fixable: "code",
+		schema: [],
 	},
 
 	create(context) {

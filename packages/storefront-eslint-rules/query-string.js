@@ -33,7 +33,7 @@ export default {
 						node.callee.property.name === "stringify") &&
 					node.arguments.length > 0
 				) {
-					const sourceCode = context.getSourceCode();
+					const sourceCode = context.sourceCode;
 					const argumentSource = sourceCode.getText(node.arguments[0]);
 
 					if (node.callee.property.name === "parse") {

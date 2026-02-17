@@ -70,7 +70,7 @@ export default {
 		function getEmitCallsFromTemplate(importNode) {
 			if (importNode.name === "template") {
 				const templateFileName = importNode.parent.parent.source.value;
-				const directoryPath = dirname(context.getFilename());
+				const directoryPath = dirname(context.filename);
 				const templateSource = readFileSync(
 					resolve(directoryPath, templateFileName),
 					"utf8",
