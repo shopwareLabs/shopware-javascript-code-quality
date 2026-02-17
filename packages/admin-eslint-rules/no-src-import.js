@@ -12,9 +12,7 @@ export default {
 		return {
 			ImportDeclaration(node) {
 				const invalidNodeSources = [];
-				invalidNodeSources.push(
-					node.source.value.startsWith("@administration/"),
-				);
+				invalidNodeSources.push(node.source.value.startsWith("@administration/"));
 
 				if (invalidNodeSources.includes(true)) {
 					context.report({

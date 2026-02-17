@@ -83,11 +83,7 @@ export default {
 
 						// Find the callback function argument
 						const startIndexForCallbackSearch = method === "post" ? 2 : 1;
-						for (
-							let i = startIndexForCallbackSearch;
-							i < node.arguments.length;
-							i++
-						) {
+						for (let i = startIndexForCallbackSearch; i < node.arguments.length; i++) {
 							const arg = node.arguments[i];
 							if (
 								arg.type === "ArrowFunctionExpression" ||
@@ -108,15 +104,12 @@ export default {
 						if (method === "post") {
 							contentTypeArgText = "'application/json'"; // Default
 							if (callbackFnIndex + 1 < node.arguments.length) {
-								const potentialContentTypeArg =
-									node.arguments[callbackFnIndex + 1];
+								const potentialContentTypeArg = node.arguments[callbackFnIndex + 1];
 								if (
 									potentialContentTypeArg.type === "Literal" &&
 									typeof potentialContentTypeArg.value === "string"
 								) {
-									contentTypeArgText = sourceCode.getText(
-										potentialContentTypeArg,
-									);
+									contentTypeArgText = sourceCode.getText(potentialContentTypeArg);
 								}
 							}
 						}

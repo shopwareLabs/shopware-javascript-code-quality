@@ -16,12 +16,10 @@ Add the plugin to your stylelint configuration file (e.g., `.stylelintrc.json`) 
 
 ```json
 {
-  "plugins": [
-    "@shopware-ag/admin-stylelint-rules"
-  ],
-  "rules": {
-    "@shopware-ag/admin-stylelint-rules/wrong-scss-import": true
-  }
+	"plugins": ["@shopware-ag/admin-stylelint-rules"],
+	"rules": {
+		"@shopware-ag/admin-stylelint-rules/wrong-scss-import": true
+	}
 }
 ```
 
@@ -37,12 +35,12 @@ This rule can automatically fix violations.
 
 ```scss
 @import "~scss/variables.scss";
-@import '~scss/mixins.scss';
+@import "~scss/mixins.scss";
 ```
 
 **Example of correct code for this rule:**
 
 ```scss
 @import "~scss/variables";
-@import '~scss/mixins';
+@import "~scss/mixins";
 ```

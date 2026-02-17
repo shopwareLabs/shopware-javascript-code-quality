@@ -32,17 +32,14 @@ describe("dom-access-helper", () => {
 				{
 					code: `import DomAccessHelper from 'src/helper/dom-access.helper';`,
 					output: "",
-					errors: [
-						{ message: "Use native DOM methods instead of DomAccessHelper" },
-					],
+					errors: [{ message: "Use native DOM methods instead of DomAccessHelper" }],
 				},
 				{
 					code: `const value = DomAccessHelper.getDataAttribute(element, 'data-foo');`,
 					output: `const value = element.dataset['foo'];`,
 					errors: [
 						{
-							message:
-								"Use native DOM method instead of DomAccessHelper.getDataAttribute",
+							message: "Use native DOM method instead of DomAccessHelper.getDataAttribute",
 						},
 					],
 				},
@@ -51,8 +48,7 @@ describe("dom-access-helper", () => {
 					output: `const has = element.hasAttribute('data-foo');`,
 					errors: [
 						{
-							message:
-								"Use native DOM method instead of DomAccessHelper.hasAttribute",
+							message: "Use native DOM method instead of DomAccessHelper.hasAttribute",
 						},
 					],
 				},
@@ -61,8 +57,7 @@ describe("dom-access-helper", () => {
 					output: `const attr = element.getAttribute('data-foo');`,
 					errors: [
 						{
-							message:
-								"Use native DOM method instead of DomAccessHelper.getAttribute",
+							message: "Use native DOM method instead of DomAccessHelper.getAttribute",
 						},
 					],
 				},
@@ -71,8 +66,7 @@ describe("dom-access-helper", () => {
 					output: `const el = element.querySelector('.foo');`,
 					errors: [
 						{
-							message:
-								"Use native DOM method instead of DomAccessHelper.querySelector",
+							message: "Use native DOM method instead of DomAccessHelper.querySelector",
 						},
 					],
 				},
@@ -81,8 +75,7 @@ describe("dom-access-helper", () => {
 					output: `const els = element.querySelectorAll('.foo');`,
 					errors: [
 						{
-							message:
-								"Use native DOM method instead of DomAccessHelper.querySelectorAll",
+							message: "Use native DOM method instead of DomAccessHelper.querySelectorAll",
 						},
 					],
 				},

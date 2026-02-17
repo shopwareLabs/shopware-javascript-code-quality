@@ -57,8 +57,7 @@ export default {
 							stateVariableNames.add(localName);
 							context.report({
 								node: prop,
-								message:
-									"Do not use destructured 'State', use destructured 'Store' instead.",
+								message: "Do not use destructured 'State', use destructured 'Store' instead.",
 								fix(fixer) {
 									// Fix the property key to change "State" to "Store"
 									// Preserve possible aliasing e.g., { State: MyState }
@@ -81,14 +80,10 @@ export default {
 					node.declarations[0].init.callee.type === "MemberExpression"
 				) {
 					const callee = node.declarations[0].init.callee;
-					if (
-						callee.object.name === "Component" &&
-						callee.property.name === "getComponentHelper"
-					) {
+					if (callee.object.name === "Component" && callee.property.name === "getComponentHelper") {
 						context.report({
 							node,
-							message:
-								"Remove the unused Component.getComponentHelper() import.",
+							message: "Remove the unused Component.getComponentHelper() import.",
 							fix(fixer) {
 								// Remove the entire variable declaration.
 								return fixer.remove(node);
@@ -105,8 +100,7 @@ export default {
 					arg &&
 					arg.type === "CallExpression" &&
 					arg.callee &&
-					(arg.callee.name === "mapState" ||
-						arg.callee.name === "mapGetters") &&
+					(arg.callee.name === "mapState" || arg.callee.name === "mapGetters") &&
 					arg.arguments.length === 2 &&
 					arg.arguments[0].type === "Literal" &&
 					(arg.arguments[1].type === "ArrayExpression" ||
@@ -119,10 +113,7 @@ export default {
 					// a. Handle array syntax:
 					if (arg.arguments[1].type === "ArrayExpression") {
 						const props = arg.arguments[1].elements
-							.filter(
-								(el) =>
-									el && el.type === "Literal" && typeof el.value === "string",
-							)
+							.filter((el) => el && el.type === "Literal" && typeof el.value === "string")
 							.map((el) => el.value);
 
 						computedText = props
@@ -157,10 +148,7 @@ export default {
 								}
 
 								// Case 1: property value is a literal string (mapping).
-								if (
-									prop.value.type === "Literal" &&
-									typeof prop.value.value === "string"
-								) {
+								if (prop.value.type === "Literal" && typeof prop.value.value === "string") {
 									const mappedProp = prop.value.value;
 									return (
 										"\n" +
@@ -228,8 +216,7 @@ export default {
 
 					context.report({
 						node,
-						message:
-							"Replace spread mapState call with explicit computed property definitions.",
+						message: "Replace spread mapState call with explicit computed property definitions.",
 						fix(fixer) {
 							return fixer.replaceText(node, computedText);
 						},
@@ -260,10 +247,7 @@ export default {
 						stateMember.property.name === "State"
 					) {
 						isValid = true;
-					} else if (
-						stateMember.type === "Identifier" &&
-						stateMember.name === "State"
-					) {
+					} else if (stateMember.type === "Identifier" && stateMember.name === "State") {
 						isValid = true;
 						shortHand = true;
 					}
@@ -272,17 +256,12 @@ export default {
 
 					if (node.arguments.length < 1) return;
 					const firstArg = node.arguments[0];
-					if (
-						firstArg.type === "Literal" &&
-						typeof firstArg.value === "string"
-					) {
+					if (firstArg.type === "Literal" && typeof firstArg.value === "string") {
 						const parts = firstArg.value.split("/");
 						if (parts.length === 2) {
 							const [storeName, methodName] = parts;
 							const args = node.arguments.slice(1);
-							const argsText = args
-								.map((arg) => sourceCode.getText(arg))
-								.join(", ");
+							const argsText = args.map((arg) => sourceCode.getText(arg)).join(", ");
 							const newCode = `${shortHand ? "" : "Shopware."}Store.get('${storeName}').${methodName}(${
 								argsText ? argsText : ""
 							})`;

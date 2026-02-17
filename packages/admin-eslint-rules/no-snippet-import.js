@@ -2,8 +2,7 @@ export default {
 	meta: {
 		type: "problem",
 		docs: {
-			description:
-				"Forbid passing `snippets` to Shopware.Module.register or Module.register",
+			description: "Forbid passing `snippets` to Shopware.Module.register or Module.register",
 			category: "Best Practices",
 			recommended: true,
 		},

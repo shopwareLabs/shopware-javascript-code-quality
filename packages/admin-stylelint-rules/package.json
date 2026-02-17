@@ -1,14 +1,13 @@
 {
 	"name": "@shopware-ag/admin-stylelint-rules",
 	"version": "1.0.1",
-	"main": "index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/shopwareLabs/shopware-javascript-code-quality.git",
+		"directory": "packages/admin-stylelint-rules"
+	},
 	"type": "module",
-	"peerDependencies": {
-		"stylelint": "^16.0.0 || ^17.0.0"
-	},
-	"devDependencies": {
-		"vitest": "catalog:"
-	},
+	"main": "index.js",
 	"exports": {
 		".": {
 			"import": "./index.js",
@@ -18,9 +17,10 @@
 	"scripts": {
 		"test": "vitest run"
 	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/shopwareLabs/shopware-javascript-code-quality.git",
-		"directory": "packages/admin-stylelint-rules"
+	"devDependencies": {
+		"vitest": "catalog:"
+	},
+	"peerDependencies": {
+		"stylelint": "^16.0.0 || ^17.0.0"
 	}
 }

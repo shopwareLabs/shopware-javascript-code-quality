@@ -45,15 +45,10 @@ export default {
 					const args = node.arguments;
 					const sourceCode = context.sourceCode;
 
-					const dataSetKey = toCamelCase(
-						sourceCode
-							.getText(args[1])
-							.replace(/^data-/, ""),
-					);
+					const dataSetKey = toCamelCase(sourceCode.getText(args[1]).replace(/^data-/, ""));
 
 					const fixes = {
-						getDataAttribute: () =>
-							`${sourceCode.getText(args[0])}.dataset['${dataSetKey}']`,
+						getDataAttribute: () => `${sourceCode.getText(args[0])}.dataset['${dataSetKey}']`,
 						hasAttribute: () =>
 							`${sourceCode.getText(args[0])}.hasAttribute(${sourceCode.getText(args[1])})`,
 						getAttribute: () =>

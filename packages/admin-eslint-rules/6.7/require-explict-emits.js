@@ -49,9 +49,7 @@ export default {
 			if (isComponentDefinition(objectNode)) {
 				componentNode = objectNode;
 				emitsNode = objectNode.properties.find(
-					(property) =>
-						property.key?.name === "emits" &&
-						property.value.type === "ArrayExpression",
+					(property) => property.key?.name === "emits" && property.value.type === "ArrayExpression",
 				)?.value;
 			}
 		}
@@ -71,14 +69,9 @@ export default {
 			if (importNode.name === "template") {
 				const templateFileName = importNode.parent.parent.source.value;
 				const directoryPath = dirname(context.filename);
-				const templateSource = readFileSync(
-					resolve(directoryPath, templateFileName),
-					"utf8",
-				);
+				const templateSource = readFileSync(resolve(directoryPath, templateFileName), "utf8");
 
-				const templateEventsNames = Array.from(
-					templateSource.matchAll(EVENT_NAME_REGEXP),
-				)
+				const templateEventsNames = Array.from(templateSource.matchAll(EVENT_NAME_REGEXP))
 					.map(([, capturedGroup]) => capturedGroup)
 					.filter(Boolean);
 
@@ -145,8 +138,7 @@ export default {
 		}
 
 		function fixMissingEmitDefinitions(programNode) {
-			const emitsDefinition =
-				emitsNode?.elements.map((element) => element.value) ?? [];
+			const emitsDefinition = emitsNode?.elements.map((element) => element.value) ?? [];
 			const pendingEmitDefinitions = Array.from(emittedEvents).filter(
 				(e) => e && !emitsDefinition.includes(e),
 			);
@@ -170,10 +162,7 @@ export default {
 						// emits with already some event in the component
 						const lastElement = emitsNode.elements.at(-1);
 						if (lastElement) {
-							return fixer.insertTextAfter(
-								lastElement,
-								`, ${stringEmitEvents}`,
-							);
+							return fixer.insertTextAfter(lastElement, `, ${stringEmitEvents}`);
 						}
 
 						// emits without any event in
@@ -201,15 +190,12 @@ export default {
 				"provide",
 			];
 
-			const nodeAfterWhichToInsert = componentNode.properties.findLast(
-				(property) => fieldsBeforeEmits.includes(property.key.name),
+			const nodeAfterWhichToInsert = componentNode.properties.findLast((property) =>
+				fieldsBeforeEmits.includes(property.key.name),
 			);
 
 			if (nodeAfterWhichToInsert) {
-				return fixer.insertTextAfter(
-					nodeAfterWhichToInsert,
-					`,\n\nemits: [${stringEmitEvents}]`,
-				);
+				return fixer.insertTextAfter(nodeAfterWhichToInsert, `,\n\nemits: [${stringEmitEvents}]`);
 			}
 
 			// in the case there is no fields that should be before emits, then we insert at the beginning of the component

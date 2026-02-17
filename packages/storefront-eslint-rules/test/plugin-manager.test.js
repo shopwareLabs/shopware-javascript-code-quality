@@ -33,8 +33,7 @@ describe("plugin-manager", () => {
 					output: "const PluginManager = window.PluginManager;",
 					errors: [
 						{
-							message:
-								"Import from plugin.manager should use window.PluginManager",
+							message: "Import from plugin.manager should use window.PluginManager",
 						},
 					],
 				},

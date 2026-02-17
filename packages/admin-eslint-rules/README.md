@@ -16,16 +16,14 @@ Add the following to your `.eslintrc.js` file:
 
 ```javascript
 module.exports = {
-    "plugins": [
-        "@shopware-ag/admin-eslint-rules"
-    ],
-    "rules": {
-        "@shopware-ag/admin-eslint-rules/no-snippet-import": "error",
-        "@shopware-ag/admin-eslint-rules/no-src-import": "error",
-        "@shopware-ag/admin-eslint-rules/no-sw-extension-override": "error",
-        "@shopware-ag/admin-eslint-rules/require-explict-emits": "error",
-        "@shopware-ag/admin-eslint-rules/state-import": "error"
-    }
+	plugins: ["@shopware-ag/admin-eslint-rules"],
+	rules: {
+		"@shopware-ag/admin-eslint-rules/no-snippet-import": "error",
+		"@shopware-ag/admin-eslint-rules/no-src-import": "error",
+		"@shopware-ag/admin-eslint-rules/no-sw-extension-override": "error",
+		"@shopware-ag/admin-eslint-rules/require-explict-emits": "error",
+		"@shopware-ag/admin-eslint-rules/state-import": "error",
+	},
 };
 ```
 
