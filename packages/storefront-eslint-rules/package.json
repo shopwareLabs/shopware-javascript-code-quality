@@ -1,12 +1,14 @@
 {
 	"name": "@shopware-ag/storefront-eslint-rules",
-	"type": "module",
-	"description": "Shopware Storefront ESLint rules",
 	"version": "1.0.0",
-	"main": "index.js",
-	"peerDependencies": {
-		"eslint": "catalog:"
+	"description": "Shopware Storefront ESLint rules",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/shopwareLabs/shopware-javascript-code-quality.git",
+		"directory": "packages/storefront-eslint-rules"
 	},
+	"type": "module",
+	"main": "index.js",
 	"exports": {
 		".": {
 			"import": "./index.js",
@@ -20,9 +22,7 @@
 		"eslint": "catalog:",
 		"vitest": "catalog:"
 	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/shopwareLabs/shopware-javascript-code-quality.git",
-		"directory": "packages/storefront-eslint-rules"
+	"peerDependencies": {
+		"eslint": "catalog:"
 	}
 }

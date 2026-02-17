@@ -23,9 +23,7 @@ export default {
 					node.init.type === "Identifier" &&
 					node.init.name === "Shopware"
 				) {
-					const componentProperty = node.id.properties.find(
-						(p) => p.key.name === "Component",
-					);
+					const componentProperty = node.id.properties.find((p) => p.key.name === "Component");
 					if (componentProperty) {
 						componentVariableName = componentProperty.value.name;
 					}

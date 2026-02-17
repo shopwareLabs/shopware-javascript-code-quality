@@ -2,12 +2,12 @@ export default {
 	meta: {
 		type: "suggestion",
 		docs: {
-			description:
-				"Migrate PluginManager import to window.PluginManager assignment",
+			description: "Migrate PluginManager import to window.PluginManager assignment",
 			category: "Migration",
 			recommended: false,
 		},
 		fixable: "code",
+		schema: [],
 	},
 
 	create(context) {
@@ -21,13 +21,9 @@ export default {
 					if (importedName) {
 						context.report({
 							node,
-							message:
-								"Import from plugin.manager should use window.PluginManager",
+							message: "Import from plugin.manager should use window.PluginManager",
 							fix(fixer) {
-								return fixer.replaceText(
-									node,
-									`const ${importedName} = window.PluginManager;`,
-								);
+								return fixer.replaceText(node, `const ${importedName} = window.PluginManager;`);
 							},
 						});
 					}
@@ -43,10 +39,7 @@ export default {
 							message:
 								"Import from src/plugin-system/plugin.class should use window.PluginBaseClass",
 							fix(fixer) {
-								return fixer.replaceText(
-									node,
-									`const ${importedName} = window.PluginBaseClass;`,
-								);
+								return fixer.replaceText(node, `const ${importedName} = window.PluginBaseClass;`);
 							},
 						});
 					}

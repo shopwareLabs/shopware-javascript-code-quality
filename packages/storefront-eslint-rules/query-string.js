@@ -15,8 +15,7 @@ export default {
 				if (node.source.value === "query-string") {
 					context.report({
 						node,
-						message:
-							"Remove querystring import as URLSearchParams is used instead",
+						message: "Remove querystring import as URLSearchParams is used instead",
 						fix(fixer) {
 							return fixer.remove(node);
 						},
@@ -29,11 +28,10 @@ export default {
 					node.callee.type === "MemberExpression" &&
 					node.callee.object.name === "querystring" &&
 					node.callee.property.name &&
-					(node.callee.property.name === "parse" ||
-						node.callee.property.name === "stringify") &&
+					(node.callee.property.name === "parse" || node.callee.property.name === "stringify") &&
 					node.arguments.length > 0
 				) {
-					const sourceCode = context.getSourceCode();
+					const sourceCode = context.sourceCode;
 					const argumentSource = sourceCode.getText(node.arguments[0]);
 
 					if (node.callee.property.name === "parse") {
@@ -52,10 +50,7 @@ export default {
 							node,
 							message: "Use URLSearchParams instead of querystring.stringify",
 							fix(fixer) {
-								return fixer.replaceText(
-									node,
-									`new URLSearchParams(${argumentSource}).toString()`,
-								);
+								return fixer.replaceText(node, `new URLSearchParams(${argumentSource}).toString()`);
 							},
 						});
 					}

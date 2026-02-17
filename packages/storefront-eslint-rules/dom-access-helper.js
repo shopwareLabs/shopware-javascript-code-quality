@@ -7,6 +7,7 @@ export default {
 			recommended: true,
 		},
 		fixable: "code",
+		schema: [],
 	},
 
 	create(context) {
@@ -42,25 +43,20 @@ export default {
 				) {
 					const method = node.callee.property.name;
 					const args = node.arguments;
+					const sourceCode = context.sourceCode;
 
-					const dataSetKey = toCamelCase(
-						context
-							.getSourceCode()
-							.getText(args[1])
-							.replace(/^data-/, ""),
-					);
+					const dataSetKey = toCamelCase(sourceCode.getText(args[1]).replace(/^data-/, ""));
 
 					const fixes = {
-						getDataAttribute: () =>
-							`${context.getSourceCode().getText(args[0])}.dataset['${dataSetKey}']`,
+						getDataAttribute: () => `${sourceCode.getText(args[0])}.dataset['${dataSetKey}']`,
 						hasAttribute: () =>
-							`${context.getSourceCode().getText(args[0])}.hasAttribute(${context.getSourceCode().getText(args[1])})`,
+							`${sourceCode.getText(args[0])}.hasAttribute(${sourceCode.getText(args[1])})`,
 						getAttribute: () =>
-							`${context.getSourceCode().getText(args[0])}.getAttribute(${context.getSourceCode().getText(args[1])})`,
+							`${sourceCode.getText(args[0])}.getAttribute(${sourceCode.getText(args[1])})`,
 						querySelector: () =>
-							`${context.getSourceCode().getText(args[0])}.querySelector(${context.getSourceCode().getText(args[1])})`,
+							`${sourceCode.getText(args[0])}.querySelector(${sourceCode.getText(args[1])})`,
 						querySelectorAll: () =>
-							`${context.getSourceCode().getText(args[0])}.querySelectorAll(${context.getSourceCode().getText(args[1])})`,
+							`${sourceCode.getText(args[0])}.querySelectorAll(${sourceCode.getText(args[1])})`,
 					};
 
 					if (fixes[method]) {

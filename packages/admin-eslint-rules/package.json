@@ -1,43 +1,43 @@
 {
 	"name": "@shopware-ag/admin-eslint-rules",
-	"type": "module",
-	"description": "Shopware Administration ESLint rules",
 	"version": "1.0.1",
-	"main": "index.js",
+	"description": "Shopware Administration ESLint rules",
+	"keywords": [
+		"eslint",
+		"eslint-plugin",
+		"eslint-rules",
+		"shopware"
+	],
+	"homepage": "https://github.com/shopwareLabs/shopware-javascript-code-quality/tree/main/packages/admin-eslint-rules#readme",
+	"bugs": {
+		"url": "https://github.com/shopwareLabs/shopware-javascript-code-quality/issues"
+	},
 	"license": "MIT",
 	"author": "Shopware AG",
-	"dependencies": {
-		"compare-versions": "^6.1.1"
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/shopwareLabs/shopware-javascript-code-quality.git",
+		"directory": "packages/admin-eslint-rules"
 	},
-	"peerDependencies": {
-		"eslint": "catalog:"
-	},
+	"type": "module",
+	"main": "index.js",
 	"exports": {
 		".": {
 			"import": "./index.js",
 			"require": "./index.js"
 		}
 	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/shopwareLabs/shopware-javascript-code-quality.git",
-		"directory": "packages/admin-eslint-rules"
-	},
-	"keywords": [
-		"shopware",
-		"eslint",
-		"eslint-plugin",
-		"eslint-rules"
-	],
-	"homepage": "https://github.com/shopwareLabs/shopware-javascript-code-quality/tree/main/packages/admin-eslint-rules#readme",
-	"bugs": {
-		"url": "https://github.com/shopwareLabs/shopware-javascript-code-quality/issues"
-	},
 	"scripts": {
 		"test": "vitest run"
 	},
+	"dependencies": {
+		"compare-versions": "^6.1.1"
+	},
 	"devDependencies": {
-		"eslint": "^9.38.0",
+		"eslint": "catalog:",
 		"vitest": "^4.0.1"
+	},
+	"peerDependencies": {
+		"eslint": "catalog:"
 	}
 }

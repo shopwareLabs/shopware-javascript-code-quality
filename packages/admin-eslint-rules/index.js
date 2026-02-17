@@ -20,12 +20,7 @@ if (process.env.SHOPWARE_VERSION) {
 				return true;
 			}
 
-			return (
-				compareVersions(
-					process.env.SHOPWARE_VERSION,
-					rule.meta.minShopwareVersion,
-				) >= 0
-			);
+			return compareVersions(process.env.SHOPWARE_VERSION, rule.meta.minShopwareVersion) >= 0;
 		}),
 	);
 }

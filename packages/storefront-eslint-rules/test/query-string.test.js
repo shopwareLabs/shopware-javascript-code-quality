@@ -30,8 +30,7 @@ describe("query-string", () => {
 					output: "",
 					errors: [
 						{
-							message:
-								"Remove querystring import as URLSearchParams is used instead",
+							message: "Remove querystring import as URLSearchParams is used instead",
 						},
 					],
 				},
@@ -39,16 +38,12 @@ describe("query-string", () => {
 					code: "const params = querystring.parse(window.location.search);",
 					output:
 						"const params = Object.fromEntries(new URLSearchParams(window.location.search).entries());",
-					errors: [
-						{ message: "Use URLSearchParams instead of querystring.parse" },
-					],
+					errors: [{ message: "Use URLSearchParams instead of querystring.parse" }],
 				},
 				{
 					code: `const params = querystring.stringify({ foo: 'bar' });`,
 					output: `const params = new URLSearchParams({ foo: 'bar' }).toString();`,
-					errors: [
-						{ message: "Use URLSearchParams instead of querystring.stringify" },
-					],
+					errors: [{ message: "Use URLSearchParams instead of querystring.stringify" }],
 				},
 			],
 		});

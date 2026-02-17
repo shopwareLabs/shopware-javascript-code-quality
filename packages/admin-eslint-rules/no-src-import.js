@@ -1,11 +1,18 @@
 export default {
+	meta: {
+		type: "problem",
+		docs: {
+			description: "Forbid imports directly from the Shopware Core via @administration/",
+			category: "Best Practices",
+			recommended: true,
+		},
+		schema: [],
+	},
 	create(context) {
 		return {
 			ImportDeclaration(node) {
 				const invalidNodeSources = [];
-				invalidNodeSources.push(
-					node.source.value.startsWith("@administration/"),
-				);
+				invalidNodeSources.push(node.source.value.startsWith("@administration/"));
 
 				if (invalidNodeSources.includes(true)) {
 					context.report({
