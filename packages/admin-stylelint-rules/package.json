@@ -2,7 +2,7 @@
 	"name": "@shopware-ag/admin-stylelint-rules",
 	"version": "1.0.1",
 	"license": "MIT",
-	"author": "Shopware AG",
+	"author": "shopware AG",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/shopwareLabs/shopware-javascript-code-quality.git",
