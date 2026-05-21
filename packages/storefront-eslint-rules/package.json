@@ -2,6 +2,8 @@
 	"name": "@shopware-ag/storefront-eslint-rules",
 	"version": "1.0.0",
 	"description": "Shopware Storefront ESLint rules",
+	"license": "MIT",
+	"author": "shopware AG",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/shopwareLabs/shopware-javascript-code-quality.git",
