@@ -9,5 +9,6 @@
 		"oxfmt": "^0.33.0",
 		"oxlint": "^1.48.0"
 	},
-	"packageManager": "pnpm@10.28.1"
+	"packageManager": "pnpm@10.28.1",
+	"license": "MIT"
 }
