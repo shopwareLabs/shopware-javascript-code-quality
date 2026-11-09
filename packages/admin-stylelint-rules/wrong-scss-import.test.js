@@ -56,26 +56,24 @@ describe("stylelint rule", () => {
 	});
 
 	it("should fix the import", async () => {
-		const {
-			results: [{ warnings }],
-		} = await stylelint.lint({
+		const { code, results } = await stylelint.lint({
 			code: `@import "~scss/variables.scss";`,
 			config,
 			fix: true,
 		});
 
-		expect(warnings).toHaveLength(0);
+		expect(code).toBe(`@import "~scss/variables";`);
+		expect(results[0].warnings).toHaveLength(0);
 	});
 
 	it("should fix the import with single quotes", async () => {
-		const {
-			results: [{ warnings }],
-		} = await stylelint.lint({
+		const { code, results } = await stylelint.lint({
 			code: `@import '~scss/variables.scss';`,
 			config,
 			fix: true,
 		});
 
-		expect(warnings).toHaveLength(0);
+		expect(code).toBe(`@import '~scss/variables';`);
+		expect(results[0].warnings).toHaveLength(0);
 	});
 });

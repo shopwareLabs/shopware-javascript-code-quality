@@ -6,4 +6,5 @@ onlyBuiltDependencies:
 
 catalog:
   eslint: ^9.38.0 || ^10.0.0
+  stylelint: ^18.0.0
   vitest: ^4.0.1

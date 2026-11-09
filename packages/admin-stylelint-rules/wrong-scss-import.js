@@ -8,7 +8,7 @@ export const messages = stylelint.utils.ruleMessages(ruleName, {
 		"Use \"@import '~scss/variables'\" instead.",
 });
 
-export default stylelint.createPlugin(ruleName, (primaryOption, _secondaryOptions, context) => {
+const ruleFunction = (primaryOption) => {
 	return (root, result) => {
 		const validOptions = stylelint.utils.validateOptions(result, ruleName, {
 			actual: primaryOption,
@@ -31,20 +31,27 @@ export default stylelint.createPlugin(ruleName, (primaryOption, _secondaryOption
 			if (importPath.startsWith("~scss") && importPath.endsWith(".scss")) {
 				// Create the fixed import path by stripping the .scss extension.
 				const fixedPath = importPath.replace(/\.scss$/, "");
+				// Use the same quote character or default to double quotes.
+				const quote = matchQuotes ? matchQuotes[1] : '"';
 
-				if (context.fix) {
-					// Use the same quote character or default to double quotes.
-					const quote = matchQuotes ? matchQuotes[1] : '"';
-					atRule.params = `${quote}${fixedPath}${quote}`;
-				} else {
-					stylelint.utils.report({
-						message: messages.rejected,
-						node: atRule,
-						result,
-						ruleName,
-					});
-				}
+				stylelint.utils.report({
+					message: messages.rejected,
+					node: atRule,
+					result,
+					ruleName,
+					fix: () => {
+						atRule.params = `${quote}${fixedPath}${quote}`;
+					},
+				});
 			}
 		});
 	};
-});
+};
+
+ruleFunction.ruleName = ruleName;
+ruleFunction.messages = messages;
+ruleFunction.meta = {
+	fixable: true,
+};
+
+export default stylelint.createPlugin(ruleName, ruleFunction);
